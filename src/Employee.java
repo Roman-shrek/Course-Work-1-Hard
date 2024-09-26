@@ -14,7 +14,7 @@ public class Employee {
         this.id=++count;
     }
 
-    public int getCount() {
+    public int getId() {
         return id;
     }
     public String getNameEmployee() {
@@ -35,18 +35,18 @@ public class Employee {
     public void setNumberDepartment(int numberDepartment) {
         this.numberDepartment = numberDepartment;
     }
+
     @Override
     public boolean equals(Object object) {
-        if (this.getClass() != object.getClass()) {
-            return false;
-        }
-        Employee employee = (Employee) object;
-        return Objects.equals(nameEmployee, employee.nameEmployee);
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Employee employee1 = (Employee) object;
+        return id == employee1.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(nameEmployee);
+        return Objects.hashCode(id);
     }
 
     @Override
